@@ -5,7 +5,7 @@
 docker-compose up -d
 ```
 
-##### Remove container without  deleting data:
+##### Remove container without deleting data:
 ```shell script
 docker-compose down
 ```
