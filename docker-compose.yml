@@ -6,14 +6,14 @@ services:
     container_name: mariadb
     volumes:
       - mariadb_data:/var/lib/mysql
-#    restart: always
+    restart: always
     ports:
       - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: aurickdb
-      MYSQL_USER: aurick
-      MYSQL_PASSWORD: aurick
+      MYSQL_ROOT_PASSWORD: my_root_password
+      MYSQL_DATABASE: my_database
+      MYSQL_USER: my_username
+      MYSQL_PASSWORD: my_password
     networks:
       - mariadb
 
@@ -24,13 +24,13 @@ services:
     ports:
       - 8082:80
     environment:
-      PMA_ARBITRARY: 1
+#      PMA_ARBITRARY: 1
       PMA_HOST: mariadb
       PMA_PORT: 3306
-      MYSQL_ROOT_PASSWORD: root
+#      MYSQL_ROOT_PASSWORD: my_root_password  # No need
       # We don't need PMA_USER & PMA_PASSWORD if we provide MYSQL_ROOT_PASSWORD. Otherwise we do.
-#      PMA_USER: aurick
-#      PMA_PASSWORD: aurick
+#      PMA_USER: username
+#      PMA_PASSWORD: password
     volumes:
       - /sessions
     networks:
